@@ -1,7 +1,7 @@
 public class ArrayApp {
     public static void main(String[] args) {
-        int[] arr;
-        arr = new int[4];
+        double[] arr;
+        arr = new double[4];
         arr[0] = 1;
         arr[1] = 2;
         arr[2] = 3;
@@ -9,8 +9,9 @@ public class ArrayApp {
 
 //        int searchKey = 51;
         int i, j, k;
-        int sumArr = 0;
+        double sumArr = 0;
         double mean = 0;
+        int max, min;
 //        for (i = 0; i < arr.length; i++) {
 //            if (arr[i] == searchKey) {
 //                break;
