@@ -24,7 +24,8 @@ public class Motorcycles {
         return "Motorcycles{" +
                 "name='" + name + '\'' +
                 ", power=" + power +
-                ", color='" + color + '\'' +
+
+               ", color='" + color + '\'' +
                 ", engineVolume=" + engineVolume +
                 ", speed=" + speed +
                 '}';
@@ -103,9 +104,6 @@ public class Motorcycles {
         list.add(mot7);
         list.add(mot8);
         list.add(mot8);
-
-
-
 
     }
 }
