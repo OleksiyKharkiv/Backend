@@ -24,6 +24,9 @@ public class DbMotorrad {
         for (Motorrad motorrad : motorradList) {
             nameMoto.add(motorrad.getName());
         }
+        for (int i = 0; i < motorradList.size(); i++) {
+
+        }
         System.out.println(nameMoto);
 
         System.out.println();
