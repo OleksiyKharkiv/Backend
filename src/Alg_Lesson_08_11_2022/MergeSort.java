@@ -1,13 +1,17 @@
 package Alg_Lesson_08_11_2022;
 
-public class MergeSort {
+import java.util.Arrays;
 
+public class MergeSort {
 
     public static void main(String[] args) {
         int[] arr = new int[]{2, 6, 87, 1, 0, 52, 42, 41, 1, 5, 7};
 
         mergeSort(arr, 0, arr.length - 1);
+
+        System.out.println(Arrays.toString(arr));
     }
+
 
     static void mergeSort(int[] arr, int left, int right) {
         if (left < right) {
@@ -28,7 +32,7 @@ public class MergeSort {
         int[] arrR = new int[ind2];
 
         for (int i = 0; i < ind1; i++) {
-            arrL[i] = arr[i + 1];
+            arrL[i] = arr[i + left];
         }
 
         for (int i = 0; i < ind2; i++) {
@@ -37,36 +41,33 @@ public class MergeSort {
 
         int i = 0;
         int j = 0;
-        int k = 0;
-        int[] arrRes = new int[];
+        int k = left;
+
         // Сортируем 2 массива между собой
         while (i < ind1 && j < ind2) {
-
-            for (k = 0; k < ind1 + ind2; k++) {
-                if (arrL[i] < arrR[j]) {
-                    arrRes[k] = arrL[i];
-                } else {
-                    arrRes[k] = arrR[j];
-                }
+            if (arrL[i] <= arrR[j]) {
+                arr[k] = arrL[i];
+                i++;
+            } else {
+                arr[k] = arrR[j];
+                j++;
             }
+
+            k++;
         }
 
         // Копируем оставшиеся элементы из arrL, если они есть
         while (i < ind1) {
-            if (ind1>ind2) {
-                for (k = (ind1+ind2)-(ind1-ind2); k <(ind1+ind2) ; k++) {
-                    arrRes[k]=arrL[ind1-ind2+i];
-                }
-            }
+            arr[k] = arrL[i];
+            i++;
+            k++;
         }
 
         // Копируем оставшиеся элементы из arrR, если они есть
         while (j < ind2) {
-            if (ind2>ind1) {
-                for (k = (ind1+ind2)-(ind2-ind1); k <(ind1+ind2) ; k++) {
-                    arrRes[k]=arrR[ind2-ind1+i];
-                }
-            }
+            arr[k] = arrR[j];
+            j++;
+            k++;
         }
     }
 }
