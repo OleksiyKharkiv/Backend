@@ -1,40 +1,44 @@
 package motorradProject.db;
-
+import lombok.Getter;
+import lombok.Setter;
 import motorradProject.model.Motorrad;
+import motorradProject.model.OneCylinder;
+import org.jetbrains.annotations.NotNull;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
+@Getter
+@Setter
 
 public class DbMotorrad {
-    public static void main(String[] args) {
-        List<Motorrad> motorradList = new ArrayList<>();
+    private TreeMap<Motorrad, Integer> garage = new TreeMap<>();
+    private Set<String> classMotorrad = new TreeSet<>();
+    private Deque<OneCylinder> motorradUnderRepair = new ArrayDeque<>();
 
-        motorradList.add(new Motorrad("Honda CBX 1000", 42, "Red", 1047, 225));
-        motorradList.add(new Motorrad("Kawasaki Zephyr", 30, "Deep Blue", 1062, 199));
-        motorradList.add(new Motorrad("Kawasaki Zephyr", 30, "Deep Blue", 1062, 199));
-        motorradList.add(new Motorrad("Yamaha FZR ", 35, "White", 1002, 260));
-        motorradList.add(new Motorrad("BMW 1150RT", 22, "Sky Blue", 1130, 204));
-        motorradList.add(new Motorrad("KTM Duke 690", 12, "Orange", 690, 193));
-        motorradList.add(new Motorrad("harley davidson sportster 883", 2, "Black", 883, 190));
-        motorradList.add(new Motorrad("Ducati Monster 1200", 3, "Red", 1193, 250));
-        motorradList.add(new Motorrad("Suzuki GSX 1300 R Hayabusa", 13, "Black Gold", 1299, 312));
-        motorradList.add(new Motorrad("husqvarna svartpilen 401 ", 1, "Gray", 373, 168));
+    public void addMotorradToGarage(Integer number, Motorrad motorrad) {
+        garage.put(motorrad, number);
+    }
 
-        List<String> nameMoto = new ArrayList<>();
-        for (Motorrad motorrad : motorradList) {
-            nameMoto.add(motorrad.getName());
-        }
-        for (int i = 0; i < motorradList.size(); i++) {
+    public Integer getNumberByMotorrad(Motorrad motorrad) {
+        return garage.get(motorrad);
+    }
 
-        }
-        System.out.println(nameMoto);
+    public Integer backMotorradFromGarage(Motorrad motorrad) {
+        return garage.remove(motorrad);
+    }
 
-        System.out.println();
+    public void addClassMotorrad(@NotNull Motorrad motorrad) {
+        classMotorrad.add(motorrad.getClass().getSimpleName());
+    }
 
-        List<Integer> motorVolume = new ArrayList<>();
-        for (Motorrad motorrad : motorradList) {
-            motorVolume.add(motorrad.getVolume());
-        }
-        System.out.println(motorVolume);
+    public void sendMotorradToService(OneCylinder oCylynder) {
+        motorradUnderRepair.add(oCylynder);
+    }
+
+    public OneCylinder getMotorradFromService() {
+        return motorradUnderRepair.pollFirst();
+    }
+
+    public OneCylinder getBrockenMoto() {
+        return motorradUnderRepair.pollLast();
     }
 }
