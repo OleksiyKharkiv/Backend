@@ -1,7 +1,5 @@
 package motorradProject.model;
 
-import motorradProject.model.OneCylinder;
-
 public class OneCylinderAirCooling extends OneCylinder {
     String airCooling;
 
