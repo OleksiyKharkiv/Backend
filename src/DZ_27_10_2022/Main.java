@@ -1,16 +1,8 @@
 package DZ_27_10_2022;
 
 import java.util.*;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
-import java.util.function.Consumer;
-
-//Вопросы:
-//    Как заполнить ArrList отдельно взятыми полями из другого ArrList?
-
 
 public class Main {
     public static void main(String[] args) {
@@ -34,9 +26,6 @@ public class Main {
         System.out.println(nameMoto);
 
         int[] motorVolume = new int[]{1047, 1062, 648, 1002, 1130, 690, 883, 1193, 1299, 373, 1002, 1002};
-//        for (int i = 0; i <motorradList.size(); i++) {
-//        motorVolume[i] = Motorrad.volume(i);
-//        }
 
 //        Обрабатываем массив при помощи Stream
         int[] arrSorted = Arrays.stream(motorVolume)  // стримим
@@ -80,7 +69,6 @@ public class Main {
         Optional<String> collectedString = wordsStream.reduce((x, y) -> x + " " + y);
         System.out.println(collectedString.get());
         System.out.println();
-
         /*
          * TODO:
          *  Дано:
@@ -91,7 +79,6 @@ public class Main {
         List<String> fruits = Stream.of("apple", "banana", "lemon", "orange").toList();
         Map<Character, String> map = fruits.stream().collect(Collectors.toMap(s -> s.charAt(0), s -> s));
         System.out.println(map);
-
     }
 }
 

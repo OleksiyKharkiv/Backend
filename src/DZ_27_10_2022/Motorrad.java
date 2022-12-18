@@ -16,5 +16,4 @@ public class Motorrad {
     private String color;
     private int volume;
     private int maxSpeed;
-
 }
