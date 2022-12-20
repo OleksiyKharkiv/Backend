@@ -1,5 +1,6 @@
 package motorradProject;
 
+import motorradProject.model.BrandMoto;
 import motorradProject.model.Motorrad;
 
 import java.util.*;

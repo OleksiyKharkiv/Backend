@@ -1,4 +1,4 @@
-package motorradProject;
+package motorradProject.model;
 
 public enum BrandMoto {
     HONDA,
