@@ -29,8 +29,8 @@ public class HW2_FibonacciNumber {
             fib =1;
         }
         if (index < 0 || index > 92) {
-//            throw new IndexOutOfBoundsException(index);
-            System.out.println("Scheise!!! Error input!");
+           throw new IndexOutOfBoundsException(index);
+//            System.out.println("Scheise!!! Error input!");
         }
         for (int j = 2; j <= index; j++) {
             fib = n0 + n1;
