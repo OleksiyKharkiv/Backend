@@ -33,8 +33,8 @@ public class Main {
         gamers.add(new Person("ИИ3", Action.PAPER, 0, exchanger));
         gamers.add(new Person("ИИ4", Action.PAPER, 0, exchanger));
 
-        for (int i = 0; i < gamers.size(); i++) {
-            System.out.println(gamers.get(i));
+        for (Person gamer : gamers) {
+            System.out.println(gamer);
         }
 
         public void run () {
